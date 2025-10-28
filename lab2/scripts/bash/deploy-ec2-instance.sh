@@ -6,7 +6,7 @@ REGION="${REGION:-eu-north-1}"
 SG_NAME="${SG_NAME:-sample-app}"
 INSTANCE_TYPE="${INSTANCE_TYPE:-t3.micro}"  # Free Tier souvent OK
 APP_PORT="${APP_PORT:-80}"                  # adapte si ton app écoute 8080
-USER_DATA_FILE="${USER_DATA_FILE:-user-data.sh}"
+USER_DATA_FILE="user-data.sh"
 
 # --------- Trouver l'AMI Amazon Linux 2 de la région ----------
 AMI_ID=$(aws ec2 describe-images \
