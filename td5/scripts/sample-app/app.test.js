@@ -2,10 +2,10 @@ const request = require('supertest');
 const app = require('./app');
 
 describe('Test the app', () => {
-  test('Get / should return DevOps Labs!', async () => {
+  test('Get / should return DevOps Lab!', async () => {
     const response = await request(app).get('/');
     expect(response.statusCode).toBe(200);
-    expect(response.text).toBe('DevOps Labs!');
+    expect(response.text).toBe('DevOps Lab!');
   });
 
   test('Get /name/Bob should return Hello, Bob!', async () => {
