@@ -1,17 +1,30 @@
-# .github/workflows/app-tests.yml (Example 5-2)
-name: Sample App Tests
+# name: Infrastructure Tests
 
 on: push
 
 jobs:
-  sample_app_tests:
-    name: "Run Tests Using Jest"
+  opentofu_test:
+    name: "Run OpenTofu tests"
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
-      - uses: actions/checkout@v3
-      - name: Install dependencies
-        working-directory: td5/scripts/sample-app
-        run: npm install
-      - name: Run tests
-        working-directory: td5/scripts/sample-app
-        run: npm test
+      - uses: actions/checkout@v2
+
+      - uses: aws-actions/configure-aws-credentials@v3
+        with:
+          # TODO: fill in your IAM role ARN!
+          role-to-assume: arn:aws:iam::248928952674:role/lambda-sample-tests
+          role-session-name: tests-${{ github.run_number }}-${{ github.actor }}
+          aws-region: us-east-2
+
+      - uses: opentofu/setup-opentofu@v1
+
+      - name: Tofu Test
+        env:
+          TF_VAR_name: lambda-sample-${{ github.run_id }}
+        working-directory: td5/scripts/tofu/live/lambda-sample
+        run: |
+          tofu init -backend=false -input=false
+          tofu test -verbose
