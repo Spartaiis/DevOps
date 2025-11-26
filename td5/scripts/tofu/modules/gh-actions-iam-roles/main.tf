@@ -189,6 +189,18 @@ data "aws_iam_policy_document" "apply_serverless_app" {
   }
 
   statement {
+    sid    = "IamRolePolicyPermissions"
+    effect = "Allow"
+    actions = [
+      "iam:AttachRolePolicy",
+      "iam:DetachRolePolicy",
+      "iam:PutRolePolicy",
+      "iam:DeleteRolePolicy"
+    ]
+    resources = ["arn:aws:iam::*:role/lambda-sample-*"]
+  }
+
+  statement {
     sid       = "ServerlessPermissions"
     effect    = "Allow"
     actions   = ["lambda:*", "apigateway:*", "apigatewayv2:*"]
