@@ -5,13 +5,12 @@ on: push
 jobs:
   sample_app_tests:
     name: "Run Tests Using Jest"
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
         working-directory: td5/scripts/sample-app
         run: npm install
       - name: Run tests
-        working-directory: td5/scripts/samples-app
+        working-directory: td5/scripts/sample-app
         run: npm test
-
