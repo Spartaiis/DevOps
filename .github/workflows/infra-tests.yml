@@ -10,12 +10,13 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: aws-actions/configure-aws-credentials@v3
         with:
-          # TODO: fill in your IAM role ARN!
-          role-to-assume: arn:aws:iam::248928952674:role/lambda-sample-apply
+          # Provide the IAM role ARN via a repository secret named `AWS_ROLE_TO_ASSUME`
+          # e.g. set secret AWS_ROLE_TO_ASSUME = arn:aws:iam::<ACCOUNT_ID>:role/<role-name>
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           role-session-name: tests-${{ github.run_number }}-${{ github.actor }}
           aws-region: us-east-2
 
