@@ -1,5 +1,5 @@
 # untrack-tfstate.ps1
-# Usage: run this script from PowerShell in the repository root (or double-click).
+# Usage: run this script from PowerShell in the repository root.
 # It will try to remove tracked Terraform state files from Git and commit the change.
 
 Set-StrictMode -Version Latest

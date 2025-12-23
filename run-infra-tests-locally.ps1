@@ -1,7 +1,7 @@
 <#
 run-infra-tests-locally.ps1
 
-Script helper to run the OpenTofu tests locally for the lab.
+Script helper to run the OpenTofu tests locally.
 Usage: run from repository root.
 #>
 
