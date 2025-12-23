@@ -1,7 +1,8 @@
 # .github/workflows/app-tests.yml (Example 5-2)
 name: Sample App Tests
 
-on: push
+# Allow tests to run on push and via manual dispatch in the Actions UI
+on: [push, workflow_dispatch]
 
 jobs:
   sample_app_tests:
