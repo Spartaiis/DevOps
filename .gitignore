@@ -1,3 +1,27 @@
-# Ignore Terraform working directory for td5/scripts/tofu/live/ci-cd-permissions
+# Node related
+/node_modules/
+npm-debug.log
+.env
+
+# Editor directories
+.vscode/
+.idea/
+.DS_Store
+
+# Build outputs
+dist/
+
+# Terraform state and local files
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.backup
+**/.terraform.lock.hcl
+*.tfvars
+*.tfvars.json
+
+# Logs
+*.log
+
+# Ignore specific td5 Terraform working dir (historical)
 /td5/scripts/tofu/live/ci-cd-permissions/.terraform/
 
