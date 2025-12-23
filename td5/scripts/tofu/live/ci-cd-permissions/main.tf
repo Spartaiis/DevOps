@@ -24,7 +24,7 @@ module "iam_roles" {
   enable_iam_role_for_plan  = true                                
   enable_iam_role_for_apply = true                                
 
-  # TODO: fill in your own bucket and table name here!
-  tofu_state_bucket         = "YOUR_S3_BUCKET_NAME"
-  tofu_state_dynamodb_table = "YOUR_DYNAMODB_TABLE_NAME"
+  # remote state bucket and DynamoDB table used for locking
+  tofu_state_bucket         = "fundamentals-of-devops-tofu-state"
+  tofu_state_dynamodb_table = "fundamentals-of-devops-tofu-state"
 }
