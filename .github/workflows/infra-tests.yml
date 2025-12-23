@@ -1,6 +1,8 @@
 # name: Infrastructure Tests
 
-on: push
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   opentofu_test:

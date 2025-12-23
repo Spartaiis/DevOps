@@ -1,11 +1,11 @@
 terraform {
   backend "s3" {
-    # TODO: fill in your own bucket name here!
-    bucket         = "fundamentals-of-devops-tofu-state" 
+    # Remote S3 bucket used for Terraform state
+    bucket         = "fundamentals-of-devops-tofu-state"
     key            = "ch5/tofu/live/lambda-sample"       
     region         = "us-east-2"
     encrypt        = true
-    # TODO: fill in your own DynamoDB table name here!
-    dynamodb_table = "fundamentals-of-devops-tofu-state" 
+    # DynamoDB table used for state locking
+    dynamodb_table = "fundamentals-of-devops-tofu-state"
   }
 }
